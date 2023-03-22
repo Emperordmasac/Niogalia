@@ -1,5 +1,12 @@
 :root {
   --primary-white: #ffffff;
+  --secondary-white: #EBE8EB;
+  --tertiary-white: #E9E9E9;
+  --primary-black:  #000000;
+  --secondary-black:  #373737;
+  --tertiary-black: #9D9A9E;
+  --primary-blue: #2081e2;
+  --primary-background: rgba(0, 0, 0, 0.5);
   
 }
 
@@ -30,9 +37,58 @@ body {
 
 body {
   font-family: 'Blinker', sans-serif;
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+  position: relative;
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 14px;
+  scroll-behavior: smooth;
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* //--GLOBAL STYLES */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 19px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+
+.grid-one {
+    grid-area: one;
+}
+
+.grid-two {
+    grid-area: two;
+}
+
+.grid-four {
+    grid-area: four;
+}
+
+.grid-four-low {
+    grid-area: four-low;
+}
+
+.trending_row_item {
+  outline: 2px solid rgba(0, 0, 0, .205);
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+}
+
+.trending_row_item:hover {
+  outline: 2px solid rgba(0, 0, 0, .6);
+}
