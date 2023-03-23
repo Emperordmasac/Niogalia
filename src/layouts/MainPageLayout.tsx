@@ -2,6 +2,7 @@ import React from "react";
 
 //--INTERNAL IMPORTS
 import NavBar from "@/src/components/navigation/NavBar";
+// import Footer from "@/src/components/navigation/Footer";
 
 //--TYPE DEFINITIONS
 type Props = {
@@ -15,6 +16,7 @@ const MainPageLayout = ({ children }: Props) => {
                 <NavBar />
             </div>
             <div style={{ paddingTop: "5rem" }}>{children}</div>
+            {/* <Footer /> */}
         </div>
     );
 };

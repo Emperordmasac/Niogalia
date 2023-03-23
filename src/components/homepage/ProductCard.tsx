@@ -17,7 +17,9 @@ export const ProductCard = ({ products, style }: Props): JSX.Element => {
                     key={product.id}
                     className={`${style}? ${styles.style}: ${styles.product}`}
                 >
-                    <Link href={`/categories/product/${product.id}`}>
+                    <Link
+                        href={`/categories/${product.category}/${product.id}`}
+                    >
                         <div className={styles.product_header}>
                             <Image src={product.img} alt={product.category} />
                         </div>

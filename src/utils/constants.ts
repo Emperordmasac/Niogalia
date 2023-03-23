@@ -71,7 +71,7 @@ export const navlinks = [
   {
     id: 'shop',
     name: 'Shop',
-    link: '/shop',
+    link: '/categories',
     icon: shop,
   },
   {
@@ -79,6 +79,44 @@ export const navlinks = [
     name: 'Cart',
     link: '/cart',
     icon: shopCart,
+  },
+]
+
+export const categories = [
+  {
+    id: 1,
+    name: 'All',
+    link: '/categories',
+  },
+  {
+    id: 2,
+    name: 'Furnitures',
+    link: '/categories/furnitures',
+  },
+  {
+    id: 3,
+    name: 'Electronics',
+    link: '/categories/electronics',
+  },
+  {
+    id: 4,
+    name: 'Lamps',
+    link: '/categories/lamps',
+  },
+  {
+    id: 5,
+    name: 'Kitchen',
+    link: '/categories/kitchen',
+  },
+  {
+    id: 6,
+    name: 'Chairs',
+    link: '/categories/chairs',
+  },
+  {
+    id: 7,
+    name: 'SkinCare',
+    link: '/categories/skincare',
   },
 ]
 
