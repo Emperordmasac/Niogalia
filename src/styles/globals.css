@@ -2,8 +2,10 @@
   --primary-white: #ffffff;
   --secondary-white: #EBE8EB;
   --tertiary-white: #E9E9E9;
+  --off-white:  #E5E5E5;
   --primary-black:  #000000;
   --secondary-black:  #373737;
+  --primary-red:  #B6002C;
   --tertiary-black: #9D9A9E;
   --primary-blue: #2081e2;
   --primary-background: rgba(0, 0, 0, 0.5);
@@ -93,14 +95,27 @@ a {
   outline: 2px solid rgba(0, 0, 0, .6);
 }
 
-.slide_in {
+/* notify */
+
+.notify {
+  color: white;
+  background-color: #373737;
+  padding: 1.2rem 2.2rem;
+  z-index: 999999999;
+  font-size: 2rem;
+  position: absolute;
+  transform: translate(-50%);
+  top: -100%;
+  left: 50%;
+}
+
+.notify.slide-in {
   animation-duration: 4s;
   animation-delay: -1s;
   animation-name: slidein;
   animation-direction: alternate;
   animation-fill-mode: forwards;
 }
-
 @keyframes slidein {
   0% {
       top: -100%;
