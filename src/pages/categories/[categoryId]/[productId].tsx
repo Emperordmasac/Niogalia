@@ -3,22 +3,18 @@ import { useRouter } from "next/router";
 
 //--INTERNAL IMPORTS
 import MainPageLayout from "@/src/layouts/MainPageLayout";
-import { Banner } from "@/src/components/common/Banner";
+import ProductDetails from "@/src/components/products/ProductDetails";
 
 //--IMPORT CONSTANTS
-import { banner1 } from "@/public/img/banner";
+import { products, categories } from "src/utils/constants";
 
-const Category = () => {
+const Category = ({ item }) => {
     const router = useRouter();
-    const categoryName = router.query.categoryId;
+    const productId = router.query.productId;
 
     return (
         <MainPageLayout>
-            <Banner
-                img={banner1}
-                title="Creative harmonious living"
-                text=" RAOUF Products are all made to standard sizes so that you can mix and match them freely."
-            />
+            <ProductDetails productId={productId} />
         </MainPageLayout>
     );
 };

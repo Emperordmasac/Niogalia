@@ -91,17 +91,17 @@ export const categories = [
   {
     id: 2,
     name: 'Furnitures',
-    link: '/categories/furnitures',
+    link: '/categories/furniture',
   },
   {
     id: 3,
     name: 'Electronics',
-    link: '/categories/electronics',
+    link: '/categories/electronic',
   },
   {
     id: 4,
     name: 'Lamps',
-    link: '/categories/lamps',
+    link: '/categories/lamp',
   },
   {
     id: 5,
@@ -111,7 +111,7 @@ export const categories = [
   {
     id: 6,
     name: 'Chairs',
-    link: '/categories/chairs',
+    link: '/categories/chair',
   },
   {
     id: 7,
@@ -219,7 +219,7 @@ export const products = [
   },
   {
     id: 6,
-    category: 'skin-care',
+    category: 'skincare',
     img: Img6,
     description: 'Body Oil 200ml',
     price: 67,
@@ -310,7 +310,7 @@ export const products = [
   },
   {
     id: 13,
-    category: 'skin-care',
+    category: 'skincare',
     img: Img13,
     description: 'Unbleached Cotton Pads 180',
     price: 33,
@@ -401,7 +401,7 @@ export const products = [
   },
   {
     id: 20,
-    category: 'skin-care',
+    category: 'skincare',
     img: Img20,
     description: 'Body Oil 50ml',
     price: 45,

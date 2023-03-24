@@ -92,3 +92,29 @@ a {
 .trending_row_item:hover {
   outline: 2px solid rgba(0, 0, 0, .6);
 }
+
+.slide_in {
+  animation-duration: 4s;
+  animation-delay: -1s;
+  animation-name: slidein;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slidein {
+  0% {
+      top: -100%;
+  }
+
+  40% {
+      top: 90px;
+  }
+
+  60% {
+      top: 90px;
+  }
+
+  100% {
+      top: -100%;
+  }
+}

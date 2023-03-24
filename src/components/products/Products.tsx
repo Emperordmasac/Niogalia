@@ -9,19 +9,16 @@ import { ProductCard } from "@/src/components/homepage/ProductCard";
 
 //--TYPE DEFINITIONS
 type IProduct = {
-    productId?: string;
+    productId?: any;
 };
 
 const Products = ({ productId }: IProduct) => {
-    let filteredQuery;
-    if (!productId) {
-        filteredQuery = "all";
-    }
+    let filteredProducts;
     if (productId) {
-        filteredQuery = productId;
+        filteredProducts = products.filter((p) => p.category === productId);
+    } else {
+        filteredProducts = products;
     }
-
-    const filteredProducts = products;
 
     return (
         <div className={styles.newproduct}>

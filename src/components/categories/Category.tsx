@@ -8,7 +8,6 @@ const Categories = (): JSX.Element => {
     return (
         <>
             <CategoryHeader />
-            <Products />
         </>
     );
 };

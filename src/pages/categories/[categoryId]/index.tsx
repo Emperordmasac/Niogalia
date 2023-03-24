@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 
 //--INTERNAL IMPORTS
 import MainPageLayout from "@/src/layouts/MainPageLayout";
-import { Banner } from "@/src/components/common/Banner";
+import Products from "@/src/components/products/Products";
+import CategoryHeader from "@/src/components/categories/components/CategoryHeader";
 
 //--IMPORT CONSTANTS
 import { banner1 } from "@/public/img/banner";
@@ -14,11 +15,8 @@ const Category = () => {
 
     return (
         <MainPageLayout>
-            <Banner
-                img={banner1}
-                title="Creative harmonious living"
-                text=" RAOUF Products are all made to standard sizes so that you can mix and match them freely."
-            />
+            <CategoryHeader title={categoryName} />
+            <Products productId={categoryName} />
         </MainPageLayout>
     );
 };

@@ -1,14 +1,15 @@
 import React from "react";
-// import { useRouter } from "next/router";
 
 //--INTERNAL IMPORTS
 import MainPageLayout from "@/src/layouts/MainPageLayout";
 import CategoryHeader from "@/src/components/categories/Category";
+import Products from "@/src/components/products/Products";
 
 const Category = () => {
     return (
         <MainPageLayout>
             <CategoryHeader />
+            <Products />
         </MainPageLayout>
     );
 };
