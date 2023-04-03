@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --primary-white: #ffffff;
   --secondary-white: #EBE8EB;
@@ -61,6 +65,17 @@ a {
     margin: 0 auto;
     padding: 0 19px;
 }
+
+.div_container {
+  max-width: 124rem;
+  margin: 0 auto;
+}
+
+.page_padding {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 
 .sticky {
     position: fixed;

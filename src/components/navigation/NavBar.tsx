@@ -20,12 +20,12 @@ const NavBar = () => {
                         <Logo url="/" />
                         <SearchBar />
                     </div>
-                    <div className={styles.navBar_container_right}>
+                    <div className="flex gap-10 justify-center">
                         <div className={styles.menu}>
                             <CgMenuRight className={styles.menuIcon} />
                         </div>
                         <NavLinks navlinks={navlinks} />
-                        <Button name="Login" />
+                        <Button name="Login" url="/login" />
                     </div>
                 </div>
             </div>

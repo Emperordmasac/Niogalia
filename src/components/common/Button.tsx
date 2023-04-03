@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 //--INTERNAL IMPORTS
 import styles from "@/src/styles/styles.module.css";
@@ -8,11 +9,16 @@ type IButton = {
     name: string;
     icon?: any;
     style?: string;
+    url?: string;
 };
 
-const Button = ({ name, icon, style }: IButton): JSX.Element => {
+const Button = ({ name, icon, style, url }: IButton): JSX.Element => {
+    const router = useRouter();
     return (
-        <button className={`${styles.button} ${style}`}>
+        <button
+            onClick={() => router.push(url)}
+            className={`${styles.button} ${style}`}
+        >
             {icon} {name}
         </button>
     );
