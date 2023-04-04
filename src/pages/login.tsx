@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
 
 //--INTERNAL IMPORTS
 import { useToggle } from "@/src/utils/hooks";
-import { goTop } from "@/src/utils/helpers";
 import { TextField } from "@/src/components/common/TextInput";
 import NavBar from "@/src/components/navigation/NavBar";
+import { auth, signInWithEmailAndPassword } from "@/src/config/firebase";
 
 const Login = (): JSX.Element => {
     const [showPassword, togglePassword] = useToggle(false);
@@ -27,8 +26,14 @@ const Login = (): JSX.Element => {
 
     const handleSubmit = async (values: any) => {
         setLoginInfo({ email: values?.email, password: values?.password });
-        console.log("loginInfo-->", loginInfo);
-        goTop();
+        signInWithEmailAndPassword(
+            auth,
+            loginInfo.email,
+            loginInfo.password
+        ).then((userCredential) => {
+            let user = userCredential.user;
+            console.log("user-->", user);
+        });
     };
 
     return (
