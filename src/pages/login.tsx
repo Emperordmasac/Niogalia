@@ -3,20 +3,25 @@ import { Formik, Form } from "formik";
 import { object, string } from "yup";
 
 //--INTERNAL IMPORTS
-import { useToggle } from "@/src/utils/hooks";
+import MainPageLayout from "@/src/layouts/MainPageLayout";
 import { TextField } from "@/src/components/common/TextInput";
-import NavBar from "@/src/components/navigation/NavBar";
-import { auth, signInWithEmailAndPassword } from "@/src/config/firebase";
-import { loginFn } from "@/src/services/queries/auth";
 
-//--
+import { useToggle } from "@/src/utils/hooks";
+import { loginFn } from "@/src/services/queries/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+//--TYPE DRFINITIOSN
 type credentials = {
     user: [] | any;
 };
 
 const Login = (): JSX.Element => {
+    //--STATE COMPONENTS
+    const [isloading, setLoading] = useState(false);
     const [showPassword, togglePassword] = useToggle(false);
     const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
+
+    const auth = getAuth();
 
     const initialValues = {
         email: "",
@@ -33,36 +38,37 @@ const Login = (): JSX.Element => {
     const handleSubmit = async (values: any) => {
         setLoginInfo({ email: values?.email, password: values?.password });
         signInWithEmailAndPassword(auth, values.email, values.password)
-            .then((userCredential: any) => {
+            .then((userCredential: credentials) => {
+                setLoading(true);
                 let user = userCredential.user;
-                let idToken = user.accessToken;
+                let authToken = user.accessToken;
                 console.log("user->", user);
-                loginFn(idToken)
+                loginFn(authToken)
                     .then((res) => {
                         console.log("backend_response ->", res);
+                        setLoading(false);
                     })
                     .catch((err) => {
                         console.log("backend_error->", err);
+                        setLoading(false);
                     });
             })
             .catch((error) => {
                 console.log(error);
+                setLoading(false);
             });
     };
 
     return (
-        <>
-            <NavBar />
+        <MainPageLayout>
             <div className="bg-white py-[12rem] container page_padding grid grid-cols-2 gap-10 items-center md1000:grid-cols-1">
-                {/* Sign in Section */}
                 <div className=" py-[5rem] flex justify-center">
-                    {/* form */}
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
                         onSubmit={handleSubmit}
                     >
-                        {({ values, errors, touched, isValid, dirty }) => (
+                        {({ values, errors, touched }) => (
                             <Form
                                 className="flex flex-col py-20 px-10 bg-[#f8f8f8] w-[30rem] min450:w-full  shadow-xl relative"
                                 autoComplete="off"
@@ -77,7 +83,7 @@ const Login = (): JSX.Element => {
                                     placeholder="name@gmail.com"
                                 />
                                 <TextField
-                                    type={showPassword ? "text" : "text"}
+                                    type={showPassword ? "text" : "password"}
                                     name="password"
                                     htmlFor="password"
                                     label="Password"
@@ -101,14 +107,13 @@ const Login = (): JSX.Element => {
                                     type="submit"
                                     className="bg-[#007a7a] text-white py-4 font-medium text-[1.2rem] w-full mt-10 rounded-full"
                                 >
-                                    Sign In
+                                    {isloading ? "Loading.." : "Sign In"}
                                 </button>
                             </Form>
                         )}
                     </Formik>
                 </div>
 
-                {/* sign up section */}
                 <div className="page_padding flex flex-col text-center items-center py-20 px-10">
                     <h2 className="font-bold text-[2.6rem] text-black md1000:text-[1.7rem]">
                         New Customers
@@ -121,7 +126,7 @@ const Login = (): JSX.Element => {
                     </button>
                 </div>
             </div>
-        </>
+        </MainPageLayout>
     );
 };
 
