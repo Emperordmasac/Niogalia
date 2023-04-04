@@ -7,6 +7,12 @@ import { useToggle } from "@/src/utils/hooks";
 import { TextField } from "@/src/components/common/TextInput";
 import NavBar from "@/src/components/navigation/NavBar";
 import { auth, signInWithEmailAndPassword } from "@/src/config/firebase";
+import { loginFn } from "@/src/services/queries/auth";
+
+//--
+type credentials = {
+    user: [] | any;
+};
 
 const Login = (): JSX.Element => {
     const [showPassword, togglePassword] = useToggle(false);
@@ -26,14 +32,22 @@ const Login = (): JSX.Element => {
 
     const handleSubmit = async (values: any) => {
         setLoginInfo({ email: values?.email, password: values?.password });
-        signInWithEmailAndPassword(
-            auth,
-            loginInfo.email,
-            loginInfo.password
-        ).then((userCredential) => {
-            let user = userCredential.user;
-            console.log("user-->", user);
-        });
+        signInWithEmailAndPassword(auth, values.email, values.password)
+            .then((userCredential: any) => {
+                let user = userCredential.user;
+                let idToken = user.accessToken;
+                console.log("user->", user);
+                loginFn(idToken)
+                    .then((res) => {
+                        console.log("backend_response ->", res);
+                    })
+                    .catch((err) => {
+                        console.log("backend_error->", err);
+                    });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     return (
@@ -63,7 +77,7 @@ const Login = (): JSX.Element => {
                                     placeholder="name@gmail.com"
                                 />
                                 <TextField
-                                    type={showPassword ? "text" : "password"}
+                                    type={showPassword ? "text" : "text"}
                                     name="password"
                                     htmlFor="password"
                                     label="Password"

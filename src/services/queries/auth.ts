@@ -1,8 +1,8 @@
-import { baseApi } from '../api'
+import axios from 'axios'
 
-export const loginFn = async ({ authToken }) => {
-  const { data } = await baseApi.post(
-    '/create-or-update-user',
+export const loginFn = async (authToken) => {
+  return await axios.post(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/create-or-update-user`,
     {},
     {
       headers: {
@@ -10,6 +10,4 @@ export const loginFn = async ({ authToken }) => {
       },
     },
   )
-
-  return data
 }
