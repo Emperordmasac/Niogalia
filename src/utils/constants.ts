@@ -91,7 +91,7 @@ export const categories = [
   {
     id: 2,
     name: 'Furnitures',
-    link: '/categories/furniture',
+    link: '/categories/furnitures',
   },
   {
     id: 3,
@@ -193,7 +193,7 @@ export const products = [
   },
   {
     id: 4,
-    category: 'furniture',
+    category: 'furnitures',
     img: Img4,
     description: 'Pulp Unit - 5 Compartments',
     price: 254,
@@ -245,7 +245,7 @@ export const products = [
   },
   {
     id: 8,
-    category: 'furniture',
+    category: 'furnitures',
     img: Img8,
     description: 'Gejst Shelf A Black Ash/Black',
     price: 115,
@@ -258,7 +258,7 @@ export const products = [
   },
   {
     id: 9,
-    category: 'furniture',
+    category: 'furnitures',
     img: Img9,
     description: 'Cube Lolo Vase Black',
     price: 161,

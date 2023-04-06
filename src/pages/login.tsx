@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
+import { useSelector, useDispatch } from "react-redux";
 
 //--INTERNAL IMPORTS
 import MainPageLayout from "@/src/layouts/MainPageLayout";
@@ -9,6 +10,8 @@ import { TextField } from "@/src/components/common/TextInput";
 import { useToggle } from "@/src/utils/hooks";
 import { loginFn } from "@/src/services/queries/auth";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import type { RootState } from "@/store";
+import { loggedIn } from "@/src/redux/userSlice";
 
 //--TYPE DRFINITIOSN
 type credentials = {
@@ -20,6 +23,7 @@ const Login = (): JSX.Element => {
     const [isloading, setLoading] = useState(false);
     const [showPassword, togglePassword] = useToggle(false);
     const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
+    const dispatch = useDispatch();
 
     const auth = getAuth();
 
@@ -45,7 +49,15 @@ const Login = (): JSX.Element => {
                 console.log("user->", user);
                 loginFn(authToken)
                     .then((res) => {
-                        console.log("backend_response ->", res);
+                        dispatch(
+                            loggedIn({
+                                name: res.data.name,
+                                email: res.data.email,
+                                role: res.data.role,
+                                token: authToken,
+                                _id: res.data._id,
+                            })
+                        );
                         setLoading(false);
                     })
                     .catch((err) => {

@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 //--INPORTS STYLS & CONSTANTS
 import { CgMenuRight } from "react-icons/cg";
@@ -9,9 +11,14 @@ import styles from "@/src/styles/styles.module.css";
 import Logo from "./components/Logo";
 import NavLinks from "./components/NavLinks";
 import SearchBar from "./components/SearchBar";
-import Button from "../common/Button";
+import type { RootState } from "@/store";
+import { loggedOut } from "@/src/redux/userSlice";
 
 const NavBar = () => {
+    const router = useRouter();
+    const user = useSelector((state: RootState) => state.User.user);
+    const dispatch = useDispatch();
+
     return (
         <>
             <div className={styles.navbar}>
@@ -25,7 +32,21 @@ const NavBar = () => {
                             <CgMenuRight className={styles.menuIcon} />
                         </div>
                         <NavLinks navlinks={navlinks} />
-                        <Button name="Login" url="/login" />
+                        {user ? (
+                            <button
+                                onClick={() => dispatch(loggedOut())}
+                                className={`${styles.button} `}
+                            >
+                                Logout
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => router.push("/login")}
+                                className={`${styles.button} `}
+                            >
+                                Login
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
