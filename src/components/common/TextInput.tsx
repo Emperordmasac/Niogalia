@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
+import { BsSearch } from "react-icons/bs";
 
 //--INTERNAL IMPORTS
 
@@ -66,4 +67,20 @@ export const TextField = ({
             component="p"
         />
     </div>
+);
+
+export const SearchInput = () => (
+    <>
+        <div className="w-full border-solid border-black flex items-center mt-10 bg-[#e5e5e5] p-[1rem] gap-[.7rem] rounded-2xl">
+            <BsSearch
+                onClick={() => {}}
+                className="cursor-pointer text-[1rem]"
+            />
+            <input
+                className="w-[90%] border-none outline-none bg-transparent"
+                type="text"
+                placeholder="Search Products"
+            />
+        </div>
+    </>
 );

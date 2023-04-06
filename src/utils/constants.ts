@@ -422,37 +422,17 @@ export const mainNavList = [
   },
   {
     id: 2,
-    url: '/about',
-    title: 'About',
+    url: '/categories',
+    title: 'Shop',
   },
   {
     id: 3,
-    url: '/gallery/1',
-    title: 'Gallery',
+    url: 'Cart',
+    title: 'Cart',
   },
   {
     id: 4,
-    url: '/schedule/monday',
-    title: 'Schedule',
-  },
-  {
-    id: 5,
-    url: '/blog',
-    title: 'Blog',
-  },
-  {
-    id: 6,
-    url: '/pricing',
-    title: 'Pricing',
-  },
-  {
-    id: 7,
-    url: '/classes',
-    title: 'Classes',
-  },
-  {
-    id: 8,
-    url: '/contact',
-    title: 'Contact',
+    url: '/login',
+    title: 'Login',
   },
 ]

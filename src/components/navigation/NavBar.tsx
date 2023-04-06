@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { CgMenuRight } from "react-icons/cg";
 
 //--INPORTS STYLS & CONSTANTS
-import { CgMenuRight } from "react-icons/cg";
 import { navlinks } from "@/src/utils/constants";
 import styles from "@/src/styles/styles.module.css";
 
@@ -11,15 +10,14 @@ import styles from "@/src/styles/styles.module.css";
 import Logo from "./components/Logo";
 import NavLinks, { MobileNavList } from "./components/NavLinks";
 import SearchBar from "./components/SearchBar";
+import { useToggle } from "@/src/utils/hooks";
 import type { RootState } from "@/store";
-import { loggedOut } from "@/src/redux/userSlice";
+import { LoginButton, LogoutButton } from "@/src/components/common/Button";
 
 const NavBar = () => {
-    const [isOpen, setOpen] = useState(false);
+    const [showNav, toggleNav] = useToggle(false);
 
-    const router = useRouter();
     const user = useSelector((state: RootState) => state.User.user);
-    const dispatch = useDispatch();
 
     return (
         <>
@@ -30,41 +28,39 @@ const NavBar = () => {
                         <SearchBar />
                     </div>
                     <div className="flex gap-10 justify-center">
+                        {/* mobile nav */}
                         <div className={styles.menu}>
                             <CgMenuRight
-                                onClick={() => setOpen(true)}
+                                onClick={toggleNav}
                                 className={styles.menuIcon}
                             />
                             <div
                                 className={`bg-white h-screen w-full flex flex-col top-0 fixed z-[999999999] py-[60px] px-[40px] ease-in-out duration-500  ${
-                                    isOpen ? "left-0" : "-left-[100%]"
+                                    showNav ? "left-0" : "-left-[100%]"
                                 }`}
                             >
                                 <h3
-                                    onClick={() => setOpen(!isOpen)}
-                                    className="fa-solid fa-xmark text-[#ff0336] text-[1.3rem] cursor-pointer self-end"
+                                    onClick={() => toggleNav()}
+                                    className=" text-black text-[1.5rem] cursor-pointer self-end"
                                 >
-                                    close
+                                    X
                                 </h3>
-                                <MobileNavList />
+                                <MobileNavList
+                                    open={showNav}
+                                    setOpen={toggleNav}
+                                />
                             </div>
                         </div>
+                        {/* desktop nav */}
                         <NavLinks navlinks={navlinks} />
-                        {user ? (
-                            <button
-                                onClick={() => dispatch(loggedOut())}
-                                className={`${styles.button} `}
-                            >
-                                Logout
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => router.push("/login")}
-                                className={`${styles.button} `}
-                            >
-                                Login
-                            </button>
-                        )}
+                        {/* cta buttons */}
+                        <div className="md700:hidden">
+                            {user && user.email ? (
+                                <LogoutButton />
+                            ) : (
+                                <LoginButton />
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
