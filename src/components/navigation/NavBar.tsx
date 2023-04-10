@@ -38,7 +38,7 @@ const NavBar = () => {
                                 className={styles.menuIcon}
                             />
                             <div
-                                className={`bg-white h-screen w-full flex flex-col top-0 fixed z-[999999999] py-[60px] px-[40px] ease-in-out duration-500  ${
+                                className={`bg-white h-screen w-full flex flex-col top-0 fixed z-[999] py-[60px] px-[40px] ease-in-out duration-500  ${
                                     showNav ? "left-0" : "-left-[100%]"
                                 }`}
                             >
@@ -74,7 +74,7 @@ const NavBar = () => {
                         <div
                             className={isCartOpen ? "open_cart" : "close_cart"}
                         >
-                            <div className={styles.cart_div}>
+                            <div className={`${styles.cart_div}`}>
                                 <div className="text-[1rem] flex justify-between items-center">
                                     <h2 className="text-[1.5rem] font-bold">
                                         Your Shopping Cart
