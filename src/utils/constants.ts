@@ -130,7 +130,7 @@ export const featured = [
   },
   {
     id: 'img2',
-    link: '/categories/skin-care',
+    link: '/categories/skincare',
     image: main2,
     name: 'Skincare',
     style: 'grid-two',
@@ -144,7 +144,7 @@ export const featured = [
   },
   {
     id: 'img4',
-    link: '/categories/electronics',
+    link: '/categories/electronic',
     image: main4,
     name: 'Electronics',
     style: 'grid-four-low',

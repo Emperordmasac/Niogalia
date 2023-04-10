@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 //--INTERNAL IMPORTS
 import MainPageLayout from "@/src/layouts/MainPageLayout";
 import ProductDetails from "@/src/components/products/ProductDetails";
+import TrendingProducts from "@/src/components/homepage/TrendingProduct";
 
 //--IMPORT CONSTANTS
 
@@ -29,6 +30,7 @@ const Category = () => {
             ) : (
                 <MainPageLayout>
                     <ProductDetails productId={productId} />
+                    <TrendingProducts />
                 </MainPageLayout>
             )}
         </>

@@ -26,7 +26,7 @@ const NavLinks = ({ navlinks, toggleCart }) => {
                 </li>
             ))}
             <li onClick={toggleCart} className={styles.nav_link}>
-                <span>Cart</span>
+                <span>CART</span>
                 <Image src={shopCart} alt="cart" width={20} height={20} />
             </li>
         </ul>
