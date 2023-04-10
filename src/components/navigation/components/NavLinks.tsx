@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
 //--INTERNAL IMPORTS
 import styles from "@/src/styles/styles.module.css";
+import { shopCart } from "@/public/icons";
+import { useToggle } from "@/src/utils/hooks";
 import { LoginButton, LogoutButton } from "@/src/components/common/Button";
 import { SearchInput } from "@/src/components/common/TextInput";
 import type { RootState } from "@/store";
 
-const NavLinks = ({ navlinks }) => {
+const NavLinks = ({ navlinks, toggleCart }) => {
     return (
         <ul className={styles.nav_links}>
             {navlinks.map((link, index) => (
@@ -23,11 +25,15 @@ const NavLinks = ({ navlinks }) => {
                     />
                 </li>
             ))}
+            <li onClick={toggleCart} className={styles.nav_link}>
+                <span>Cart</span>
+                <Image src={shopCart} alt="cart" width={20} height={20} />
+            </li>
         </ul>
     );
 };
 
-export const MobileNavList = ({ setopen }: any) => {
+export const MobileNavList = ({ setopen, toggleCart }: any) => {
     const user = useSelector((state: RootState) => state.User.user);
     return (
         <div onClick={() => setopen}>
@@ -40,7 +46,7 @@ export const MobileNavList = ({ setopen }: any) => {
                     <Link href="/categories">Shop</Link>
                 </li>
                 <li className="text-[2rem] font-medium hover:text-[#007a7a] ease-in duration-200">
-                    <Link href="/cart">Cart</Link>
+                    <div onClick={toggleCart}>Cart</div>
                 </li>
                 {user && user.email ? <LogoutButton /> : <LoginButton />}
             </ul>

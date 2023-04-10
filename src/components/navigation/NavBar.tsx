@@ -13,11 +13,14 @@ import SearchBar from "./components/SearchBar";
 import { useToggle } from "@/src/utils/hooks";
 import type { RootState } from "@/store";
 import { LoginButton, LogoutButton } from "@/src/components/common/Button";
+import EmptyCart from "./components/EmptyCart";
 
 const NavBar = () => {
     const [showNav, toggleNav] = useToggle(false);
+    const [isCartOpen, toggleCart] = useToggle(false);
 
     const user = useSelector((state: RootState) => state.User.user);
+    const cart = useSelector((state: RootState) => state.Cart.cart);
 
     return (
         <>
@@ -43,16 +46,17 @@ const NavBar = () => {
                                     onClick={() => toggleNav()}
                                     className=" text-black text-[1.5rem] cursor-pointer self-end"
                                 >
-                                    X
+                                    <>{console.log(isCartOpen)}</> X
                                 </h3>
                                 <MobileNavList
                                     open={showNav}
                                     setOpen={toggleNav}
+                                    toggleCart={toggleCart}
                                 />
                             </div>
                         </div>
                         {/* desktop nav */}
-                        <NavLinks navlinks={navlinks} />
+                        <NavLinks navlinks={navlinks} toggleCart={toggleCart} />
                         {/* cta buttons */}
                         <div className="md700:hidden">
                             {user && user.email ? (
@@ -60,6 +64,37 @@ const NavBar = () => {
                             ) : (
                                 <LoginButton />
                             )}
+                        </div>
+                        {/* overlay */}
+                        <div
+                            onClick={toggleCart}
+                            className={isCartOpen ? "overlay" : ""}
+                        ></div>
+                        {/* cart */}
+                        <div
+                            className={isCartOpen ? "open_cart" : "close_cart"}
+                        >
+                            <div className={styles.cart_div}>
+                                <div className="text-[1rem] flex justify-between items-center">
+                                    <h2 className="text-[1.5rem] font-bold">
+                                        Your Shopping Cart
+                                    </h2>
+                                    <h3
+                                        onClick={toggleCart}
+                                        className=" text-black text-[1.5rem] cursor-pointer self-end font-bold"
+                                    >
+                                        X
+                                    </h3>
+                                </div>
+
+                                <div className="h-screen p-2">
+                                    {cart.length < 1 ? (
+                                        <EmptyCart toggleCart={toggleCart} />
+                                    ) : (
+                                        ""
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

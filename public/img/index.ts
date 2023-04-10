@@ -65,6 +65,8 @@ import MatLamp2 from './products/otherProducts/mat2.webp'
 import Comfy1 from './products/otherProducts/comfy1.webp'
 import Comfy2 from './products/otherProducts/comfy2.webp'
 
+import emptyCart from './empty-cart.png'
+
 export {
   main1,
   main2,
@@ -130,4 +132,5 @@ export {
   MatLamp2,
   Comfy1,
   Comfy2,
+  emptyCart,
 }

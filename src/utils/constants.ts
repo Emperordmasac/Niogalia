@@ -74,12 +74,12 @@ export const navlinks = [
     link: '/categories',
     icon: shop,
   },
-  {
-    id: 'cart',
-    name: 'Cart',
-    link: '/cart',
-    icon: shopCart,
-  },
+  // {
+  //   id: 'cart',
+  //   name: 'Cart',
+  //   link: '/cart',
+  //   icon: shopCart,
+  // },
 ]
 
 export const categories = [

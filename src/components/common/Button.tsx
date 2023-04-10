@@ -37,6 +37,14 @@ export const LoginButton = () => (
     </Link>
 );
 
+export const BrowseButton = () => (
+    <Link href={"/categories"}>
+        <button className="bg-[#007a7a]  py-[.6rem] px-[2.4rem] text-white rounded cursor-pointer hover:text-white border-solid border-[#007a7a] hover:bg-black  hover:border-[#007a7a] text-[1.3rem] font-medium transition ease-in-out delay-250">
+            Keep Browsing
+        </button>
+    </Link>
+);
+
 export const LogoutButton = ({ setOpen }: any) => {
     const auth = getAuth();
     const router = useRouter();
