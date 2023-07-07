@@ -1,13 +1,12 @@
-import React from 'react';
-import { getAuth, signOut } from 'firebase/auth';
-import { useDispatch } from 'react-redux';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { message } from 'antd';
+import { getAuth, signOut } from 'firebase/auth';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 
 //--INTERNAL IMPORTS
-import styles from '@/src/styles/styles.module.css';
 import { loggedOut } from '@/src/redux/userSlice';
+import styles from '@/src/styles/styles.module.css';
 
 //--TYPE DEFINITIONS
 type IButton = {
@@ -41,6 +40,14 @@ export const BrowseButton = () => (
   <Link href={'/categories'}>
     <button className="bg-[#007a7a]  py-[.6rem] px-[2.4rem] text-white rounded cursor-pointer hover:text-white border-solid border-[#007a7a] hover:bg-black  hover:border-[#007a7a] text-[1.3rem] font-medium transition ease-in-out delay-250">
       Keep Browsing
+    </button>
+  </Link>
+);
+
+export const CustomButton = ({ text, link }) => (
+  <Link href={`/${link}`}>
+    <button className="bg-[#007a7a]  py-[.6rem] px-[2.4rem] text-white rounded cursor-pointer hover:text-white border-solid border-[#007a7a] hover:bg-black  hover:border-[#007a7a] text-[1.3rem] font-medium transition ease-in-out delay-250">
+      {text}
     </button>
   </Link>
 );
