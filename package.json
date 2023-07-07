@@ -41,6 +41,7 @@
     "@storybook/addon-essentials": "^7.0.26",
     "@storybook/addon-interactions": "^7.0.26",
     "@storybook/addon-links": "^7.0.26",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/blocks": "^7.0.26",
     "@storybook/nextjs": "^7.0.26",
     "@storybook/react": "^7.0.26",
@@ -51,6 +52,7 @@
     "postcss": "^8.4.21",
     "prettier": "^3.0.0",
     "storybook": "^7.0.26",
+    "storybook-css-modules-preset": "^1.1.1",
     "tailwindcss": "^3.3.1"
   },
   "resolutions": {
