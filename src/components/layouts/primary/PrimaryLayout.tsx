@@ -9,7 +9,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Primary layout example</title>
+        <title>Niogalia</title>
       </Head>
       <main>{children}</main>
     </>
