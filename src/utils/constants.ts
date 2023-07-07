@@ -1,4 +1,4 @@
-import { shopCart, shop } from '@/public/icons'
+import { shop } from '@/public/icons'
 
 import {
   main1,
