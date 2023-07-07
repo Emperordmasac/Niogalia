@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Formik, Form } from "formik";
-import { object, string } from "yup";
-import { useDispatch } from "react-redux";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useRouter } from "next/router";
-import { message } from "antd";
+import React, { useState } from 'react';
+import { Formik, Form } from 'formik';
+import { object, string } from 'yup';
+import { useDispatch } from 'react-redux';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useRouter } from 'next/router';
+import { message } from 'antd';
 
 //-INTERNAL IMPORTS
-import { TextField } from "@/src/components/common/TextInput";
-import { loginFn } from "@/src/services/queries/auth";
-import { loggedIn } from "@/src/redux/userSlice";
-import { useToggle } from "@/src/utils/hooks";
+import { TextField } from '@/src/components/common/TextInput';
+import { loginFn } from '@/src/services/queries/auth';
+import { loggedIn } from '@/src/redux/userSlice';
+import { useToggle } from '@/src/utils/hooks';
 
 //--TYPE DRFINITIOSN
 type credentials = {
@@ -21,22 +21,22 @@ export const LoginForm = () => {
   //--STATE COMPONENTS
   const [isloading, setLoading] = useState(false);
   const [showPassword, togglePassword] = useToggle(false);
-  const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
+  const [loginInfo, setLoginInfo] = useState({ email: '', password: '' });
 
   const dispatch = useDispatch();
   const router = useRouter();
 
   const auth = getAuth();
   const initialValues = {
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   };
 
   const validationSchema = object().shape({
-    email: string().email("Email is invalid").required("Email is required"),
+    email: string().email('Email is invalid').required('Email is required'),
     password: string()
-      .min(8, "Password must not be less than 8 characters")
-      .required("Password is required"),
+      .min(8, 'Password must not be less than 8 characters')
+      .required('Password is required'),
   });
 
   const handleSubmit = async (values: any) => {
@@ -47,7 +47,7 @@ export const LoginForm = () => {
       .then((userCredential: credentials) => {
         let user = userCredential.user;
         let authToken = user.accessToken;
-        console.log("user->", user);
+        console.log('user->', user);
         loginFn(authToken)
           .then((res) => {
             dispatch(
@@ -59,13 +59,13 @@ export const LoginForm = () => {
                 _id: res.data._id,
               })
             );
-            message.success("Login Succesful ✔ ");
+            message.success('Login Succesful ✔ ');
             setLoading(false);
-            router.push("/");
+            router.push('/');
           })
           .catch((err) => {
             message.error(`${err}`);
-            console.log("backend_error->", err);
+            console.log('backend_error->', err);
             setLoading(false);
           });
       })
@@ -97,7 +97,7 @@ export const LoginForm = () => {
             placeholder="name@gmail.com"
           />
           <TextField
-            type={showPassword ? "text" : "password"}
+            type={showPassword ? 'text' : 'password'}
             name="password"
             htmlFor="password"
             label="Password"
@@ -119,7 +119,7 @@ export const LoginForm = () => {
             type="submit"
             className="bg-[#007a7a] text-white py-4 font-medium text-[1.2rem] w-full mt-10 rounded-full"
           >
-            {isloading ? "Loading.." : "Sign In"}
+            {isloading ? 'Loading..' : 'Sign In'}
           </button>
         </Form>
       )}

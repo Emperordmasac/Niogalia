@@ -1,10 +1,10 @@
-import React from "react";
-import { useRouter } from "next/router";
+import React from 'react';
+import { useRouter } from 'next/router';
 
 //--INTERNAL IMPORTS
-import MainPageLayout from "@/src/layouts/MainPageLayout";
-import Products from "@/src/components/products/Products";
-import CategoryHeader from "@/src/components/categories/components/CategoryHeader";
+import MainPageLayout from '@/src/layouts/MainPageLayout';
+import Products from '@/src/components/products/Products';
+import CategoryHeader from '@/src/components/categories/components/CategoryHeader';
 
 const Category = () => {
   const router = useRouter();

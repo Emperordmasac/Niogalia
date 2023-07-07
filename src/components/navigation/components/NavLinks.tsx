@@ -1,14 +1,14 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useSelector } from "react-redux";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 //--INTERNAL IMPORTS
-import styles from "@/src/styles/styles.module.css";
-import { shopCart } from "@/public/icons";
-import { LoginButton, LogoutButton } from "@/src/components/common/Button";
-import { SearchInput } from "@/src/components/common/TextInput";
-import type { RootState } from "@/store";
+import styles from '@/src/styles/styles.module.css';
+import { shopCart } from '@/public/icons';
+import { LoginButton, LogoutButton } from '@/src/components/common/Button';
+import { SearchInput } from '@/src/components/common/TextInput';
+import type { RootState } from '@/store';
 
 const NavLinks = ({ navlinks, toggleCart }) => {
   return (

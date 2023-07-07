@@ -1,9 +1,9 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 //--INTERNAL IMPORTS
-import styles from "@/src/styles/styles.module.css";
+import styles from '@/src/styles/styles.module.css';
 
 //--TYPE DEFINITIONS
 type Props = {
@@ -22,7 +22,7 @@ export const Banner = ({ title, text, img }: Props) => {
               <h2>{title}</h2>
 
               <p>{text}</p>
-              <Link href={"/shop"}>
+              <Link href={'/shop'}>
                 <button>Shop now</button>
               </Link>
             </div>
@@ -46,7 +46,7 @@ export const ReverseBanner = ({ title, text, img }: Props) => {
               <h2>{title}</h2>
 
               <p>{text}</p>
-              <Link href={"/shop"}>
+              <Link href={'/shop'}>
                 <button>Shop now</button>
               </Link>
             </div>

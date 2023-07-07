@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 // import { emptyCart } from "public/img";
-import { BrowseButton } from "@/src/components/common/Button";
+import { BrowseButton } from '@/src/components/common/Button';
 
 const EmptyCart = ({ toggleCart }: any) => {
   return (

@@ -4,18 +4,16 @@
 
 :root {
   --primary-white: #ffffff;
-  --secondary-white: #EBE8EB;
-  --tertiary-white: #E9E9E9;
-  --off-white:  #E5E5E5;
-  --primary-black:  #000000;
-  --secondary-black:  #373737;
-  --primary-red:  #B6002C;
-  --tertiary-black: #9D9A9E;
+  --secondary-white: #ebe8eb;
+  --tertiary-white: #e9e9e9;
+  --off-white: #e5e5e5;
+  --primary-black: #000000;
+  --secondary-black: #373737;
+  --primary-red: #b6002c;
+  --tertiary-black: #9d9a9e;
   --primary-blue: #2081e2;
   --primary-background: rgba(0, 0, 0, 0.5);
-  
 }
-
 
 * {
   box-sizing: border-box;
@@ -26,12 +24,12 @@
 }
 
 @font-face {
-  font-family: "moderat-regular";
+  font-family: 'moderat-regular';
   src: url(/Blinker-Regular.ttf);
 }
 
 @font-face {
-  font-family: "moderat-bold";
+  font-family: 'moderat-bold';
   src: url(/fonts/Blinker-Bold.ttf);
 }
 
@@ -58,12 +56,11 @@ a {
   cursor: pointer;
 }
 
-
 /* //--GLOBAL STYLES */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 19px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 19px;
 }
 
 .div_container {
@@ -77,9 +74,9 @@ a {
 }
 
 .sticky {
-    position: fixed;
-    top: 0;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
 .open_cart {
@@ -102,29 +99,29 @@ a {
 }
 
 .grid-one {
-    grid-area: one;
+  grid-area: one;
 }
 
 .grid-two {
-    grid-area: two;
+  grid-area: two;
 }
 
 .grid-four {
-    grid-area: four;
+  grid-area: four;
 }
 
 .grid-four-low {
-    grid-area: four-low;
+  grid-area: four-low;
 }
 
 .trending_row_item {
-  outline: 2px solid rgba(0, 0, 0, .205);
+  outline: 2px solid rgba(0, 0, 0, 0.205);
   cursor: pointer;
   transition: all 0.15s ease-in;
 }
 
 .trending_row_item:hover {
-  outline: 2px solid rgba(0, 0, 0, .6);
+  outline: 2px solid rgba(0, 0, 0, 0.6);
 }
 
 /* notify */
@@ -150,18 +147,18 @@ a {
 }
 @keyframes slidein {
   0% {
-      top: -100%;
+    top: -100%;
   }
 
   40% {
-      top: 90px;
+    top: 90px;
   }
 
   60% {
-      top: 90px;
+    top: 90px;
   }
 
   100% {
-      top: -100%;
+    top: -100%;
   }
 }

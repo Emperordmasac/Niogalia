@@ -1,4 +1,4 @@
-import { baseApi } from '../api'
+import { baseApi } from '../api';
 
 export const loginFn = async (authToken: string) => {
   return await baseApi.post(
@@ -6,6 +6,6 @@ export const loginFn = async (authToken: string) => {
     {},
     {
       headers: { authToken },
-    },
-  )
-}
+    }
+  );
+};

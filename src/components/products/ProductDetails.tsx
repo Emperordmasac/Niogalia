@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useState } from 'react';
+import Image from 'next/image';
 
 //--INTERNAL IMPORTS
-import styles from "@/src/styles/styles.module.css";
-import { products } from "src/utils/constants";
+import styles from '@/src/styles/styles.module.css';
+import { products } from 'src/utils/constants';
 
 //--TYPE DEFINTIONS
 type Props = {
@@ -45,7 +45,7 @@ const ProductDetails = ({ productId }: Props) => {
     <>
       <div
         onAnimationEnd={() => setNotify(false)}
-        className={`notify ${notify ? "slide-in" : ""}`}
+        className={`notify ${notify ? 'slide-in' : ''}`}
       >
         <p>Item has been added to the cart &nbsp; ✅</p>
       </div>

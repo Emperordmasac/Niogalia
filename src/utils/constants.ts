@@ -1,4 +1,4 @@
-import { shop } from '@/public/icons'
+import { shop } from '@/public/icons';
 
 import {
   main1,
@@ -65,7 +65,7 @@ import {
   MatLamp2,
   Comfy1,
   Comfy2,
-} from '@/public/img'
+} from '@/public/img';
 
 export const navlinks = [
   {
@@ -80,7 +80,7 @@ export const navlinks = [
   //   link: '/cart',
   //   icon: shopCart,
   // },
-]
+];
 
 export const categories = [
   {
@@ -118,7 +118,7 @@ export const categories = [
     name: 'SkinCare',
     link: '/categories/skincare',
   },
-]
+];
 
 export const featured = [
   {
@@ -149,7 +149,7 @@ export const featured = [
     name: 'Electronics',
     style: 'grid-four-low',
   },
-]
+];
 
 export const products = [
   {
@@ -412,7 +412,7 @@ export const products = [
     weight: '50ml',
     size: '10cm x 5cm',
   },
-]
+];
 
 export const mainNavList = [
   {
@@ -435,4 +435,4 @@ export const mainNavList = [
     url: '/login',
     title: 'Login',
   },
-]
+];

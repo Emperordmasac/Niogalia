@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "@/src/styles/styles.module.css";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from '@/src/styles/styles.module.css';
 
 //--TYPE DEFINITIONS
 export type Props = {

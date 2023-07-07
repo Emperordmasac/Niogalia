@@ -1,19 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { CgMenuRight } from "react-icons/cg";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { CgMenuRight } from 'react-icons/cg';
 
 //--INPORTS STYLS & CONSTANTS
-import { navlinks } from "@/src/utils/constants";
-import styles from "@/src/styles/styles.module.css";
+import { navlinks } from '@/src/utils/constants';
+import styles from '@/src/styles/styles.module.css';
 
 //--INTERNAL IMPORTS
-import Logo from "./components/Logo";
-import NavLinks, { MobileNavList } from "./components/NavLinks";
-import SearchBar from "./components/SearchBar";
-import { useToggle } from "@/src/utils/hooks";
-import type { RootState } from "@/store";
-import { LoginButton, LogoutButton } from "@/src/components/common/Button";
-import EmptyCart from "./components/EmptyCart";
+import Logo from './components/Logo';
+import NavLinks, { MobileNavList } from './components/NavLinks';
+import SearchBar from './components/SearchBar';
+import { useToggle } from '@/src/utils/hooks';
+import type { RootState } from '@/store';
+import { LoginButton, LogoutButton } from '@/src/components/common/Button';
+import EmptyCart from './components/EmptyCart';
 
 const NavBar = () => {
   const [showNav, toggleNav] = useToggle(false);
@@ -36,7 +36,7 @@ const NavBar = () => {
               <CgMenuRight onClick={toggleNav} className={styles.menuIcon} />
               <div
                 className={`bg-white h-screen w-full flex flex-col top-0 fixed z-[999] py-[60px] px-[40px] ease-in-out duration-500  ${
-                  showNav ? "left-0" : "-left-[100%]"
+                  showNav ? 'left-0' : '-left-[100%]'
                 }`}
               >
                 <h3
@@ -61,10 +61,10 @@ const NavBar = () => {
             {/* overlay */}
             <div
               onClick={toggleCart}
-              className={isCartOpen ? "overlay" : ""}
+              className={isCartOpen ? 'overlay' : ''}
             ></div>
             {/* cart */}
-            <div className={isCartOpen ? "open_cart" : "close_cart"}>
+            <div className={isCartOpen ? 'open_cart' : 'close_cart'}>
               <div className={`${styles.cart_div}`}>
                 <div className="text-[1rem] flex justify-between items-center">
                   <h2 className="text-[1.5rem] font-bold">
@@ -79,7 +79,7 @@ const NavBar = () => {
                 </div>
 
                 <div className="h-screen p-2">
-                  {cart.length < 1 ? <EmptyCart toggleCart={toggleCart} /> : ""}
+                  {cart.length < 1 ? <EmptyCart toggleCart={toggleCart} /> : ''}
                 </div>
               </div>
             </div>

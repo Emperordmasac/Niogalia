@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 //--INTERNAL IMPORTS
-import MainPageLayout from "@/src/layouts/MainPageLayout";
-import { LoginForm } from "@/src/components/common/Form";
+import MainPageLayout from '@/src/layouts/MainPageLayout';
+import { LoginForm } from '@/src/components/common/Form';
 
 const Login = () => {
   return (

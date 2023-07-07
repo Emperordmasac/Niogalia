@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 //--INTERNAL IMPORTS
-import MainPageLayout from "@/src/layouts/MainPageLayout";
-import HomeHero from "@/src/components/homepage/HomeHero";
-import NewProduct from "@/src/components/homepage/NewProduct";
-import TrendingProducts from "@/src/components/homepage/TrendingProduct";
-import { Banner, ReverseBanner } from "@/src/components/common/Banner";
+import MainPageLayout from '@/src/layouts/MainPageLayout';
+import HomeHero from '@/src/components/homepage/HomeHero';
+import NewProduct from '@/src/components/homepage/NewProduct';
+import TrendingProducts from '@/src/components/homepage/TrendingProduct';
+import { Banner, ReverseBanner } from '@/src/components/common/Banner';
 
-import { loggedIn } from "@/src/redux/userSlice";
-import { loginFn } from "@/src/services/queries/auth";
+import { loggedIn } from '@/src/redux/userSlice';
+import { loginFn } from '@/src/services/queries/auth';
 
 //--IMPORT CONSTANTS
-import { banner1, banner2 } from "@/public/img/banner";
+import { banner1, banner2 } from '@/public/img/banner';
 
 export default function Home() {
   const auth = getAuth();
@@ -36,7 +36,7 @@ export default function Home() {
             );
           })
           .catch((err) => {
-            console.log("backend_error->", err);
+            console.log('backend_error->', err);
           });
       }
     });

@@ -1,6 +1,6 @@
-import React from "react";
-import { Field, ErrorMessage } from "formik";
-import { BsSearch } from "react-icons/bs";
+import React from 'react';
+import { Field, ErrorMessage } from 'formik';
+import { BsSearch } from 'react-icons/bs';
 
 //--INTERNAL IMPORTS
 
@@ -42,7 +42,7 @@ export const TextField = ({
     )}
     <div
       className={`bg-white w-full flex items-center gap-3 ${
-        context ? "pr-3" : "pr-0"
+        context ? 'pr-3' : 'pr-0'
       }  overflow-hidden  border-[1px]`}
     >
       <Field

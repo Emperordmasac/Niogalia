@@ -1,12 +1,12 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 //--INPORTS STYLS & CONSTANTS
-import { featured } from "@/src/utils/constants";
+import { featured } from '@/src/utils/constants';
 
 //--INTERNAL IMPORTS
-import styles from "@/src/styles/styles.module.css";
+import styles from '@/src/styles/styles.module.css';
 
 const HomeHero = () => {
   return (

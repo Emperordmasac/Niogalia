@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 //--INTERNAL IMPORTS
-import CategoryHeader from "@/src/components/categories/components/CategoryHeader";
+import CategoryHeader from '@/src/components/categories/components/CategoryHeader';
 
 const Categories = () => {
   return (

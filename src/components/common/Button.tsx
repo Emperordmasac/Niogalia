@@ -1,13 +1,13 @@
-import React from "react";
-import { getAuth, signOut } from "firebase/auth";
-import { useDispatch } from "react-redux";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { message } from "antd";
+import React from 'react';
+import { getAuth, signOut } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { message } from 'antd';
 
 //--INTERNAL IMPORTS
-import styles from "@/src/styles/styles.module.css";
-import { loggedOut } from "@/src/redux/userSlice";
+import styles from '@/src/styles/styles.module.css';
+import { loggedOut } from '@/src/redux/userSlice';
 
 //--TYPE DEFINITIONS
 type IButton = {
@@ -30,7 +30,7 @@ const Button = ({ name, icon, style, url }: IButton) => {
 };
 
 export const LoginButton = () => (
-  <Link href={"/login"}>
+  <Link href={'/login'}>
     <button className="bg-[#007a7a] py-[.6rem] px-[2.4rem] text-white rounded-md cursor-pointer hover:text-white border-solid border-[#007a7a] hover:bg-black  hover:border-[#007a7a] text-[1.3rem] font-medium transition ease-in-out delay-250">
       Login
     </button>
@@ -38,7 +38,7 @@ export const LoginButton = () => (
 );
 
 export const BrowseButton = () => (
-  <Link href={"/categories"}>
+  <Link href={'/categories'}>
     <button className="bg-[#007a7a]  py-[.6rem] px-[2.4rem] text-white rounded cursor-pointer hover:text-white border-solid border-[#007a7a] hover:bg-black  hover:border-[#007a7a] text-[1.3rem] font-medium transition ease-in-out delay-250">
       Keep Browsing
     </button>
@@ -53,8 +53,8 @@ export const LogoutButton = () => {
   const handleLogout = () => {
     signOut(auth).then(() => {
       dispatch(loggedOut());
-      message.success("Logout Successful. Hope to see you again. 😇 ");
-      router.push("/");
+      message.success('Logout Successful. Hope to see you again. 😇 ');
+      router.push('/');
     });
   };
   return (
